@@ -1,9 +1,13 @@
 import { Container } from './styles';
 
-export function Avatar() {
+type AvatarProps = {
+  url?: string;
+};
+
+export function Avatar({ url }: AvatarProps) {
   return (
     <Container className="avatar">
-      <span>MV</span>
+      {url ? <img src={url} /> : <span>MV</span>}
     </Container>
   );
 }
