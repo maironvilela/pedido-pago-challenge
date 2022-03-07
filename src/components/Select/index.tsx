@@ -5,7 +5,7 @@ import { Checkbox } from './SelectItem';
 import { Pagination } from '../Pagination';
 
 export function Select() {
-  const [isShowItens, setIsShowItens] = useState(true);
+  const [isShowItens, setIsShowItens] = useState(false);
 
   const handleShowItens = useCallback(() => {
     setIsShowItens((isShowItens) => !isShowItens);

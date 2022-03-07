@@ -1,4 +1,4 @@
-import { PaginationItem } from './PaginationItem';
+import { PaginationItem } from '../PaginationItem';
 import { Container } from './styles';
 
 export function Pagination() {

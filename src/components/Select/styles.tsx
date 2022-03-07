@@ -39,5 +39,4 @@ export const Content = styled.div`
   svg {
     margin-left: auto;
   }
-  margin-bottom: 2rem;
 `;
