@@ -1,20 +1,18 @@
-import { useCallback, useState } from 'react';
-
 import { Container } from './styles';
 
 type SelectItemProps = {
   label: string;
+  isActive: boolean;
+  handleIsActive(label: string): void;
 };
 
-export function SelectItem({ label }: SelectItemProps) {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleIsActive = useCallback(() => {
-    setIsActive((isActive) => !isActive);
-  }, []);
-
+export function SelectItem({
+  label,
+  isActive,
+  handleIsActive
+}: SelectItemProps) {
   return (
-    <Container isActive={isActive} onClick={handleIsActive}>
+    <Container isActive={isActive} onClick={() => handleIsActive(label)}>
       <span>{label}</span>
     </Container>
   );
