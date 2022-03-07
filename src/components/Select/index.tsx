@@ -2,6 +2,7 @@ import { Container, Content } from './styles';
 import { FaEllipsisV, FaCheck } from 'react-icons/fa';
 import { useCallback, useState } from 'react';
 import { Checkbox } from './SelectItem';
+import { Pagination } from '../Pagination';
 
 export function Select() {
   const [isShowItens, setIsShowItens] = useState(true);
@@ -30,6 +31,8 @@ export function Select() {
           <Checkbox />
         </>
       )}
+
+      <Pagination />
     </Container>
   );
 }

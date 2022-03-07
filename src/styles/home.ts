@@ -24,6 +24,11 @@ export const Table = styled.div`
   background: #ffff;
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
   border-radius: 8px;
+
+  .pagination {
+    margin-top: 1rem;
+    float: right;
+  }
 `;
 
 export const TableSearch = styled.div`
