@@ -2,6 +2,7 @@ import { FaChevronUp, FaFileMedical } from 'react-icons/fa';
 import { Avatar } from '../components/Avatar';
 
 import { Header } from '../components/Header';
+import { Input } from '../components/Input';
 import { Select } from '../components/Select';
 import { Title } from '../components/Title';
 import {
@@ -10,8 +11,7 @@ import {
   Content,
   EmployeeCard,
   EmployeesList,
-  Table,
-  TableSearch
+  Table
 } from '../styles/home';
 export default function Home() {
   const url =
@@ -24,15 +24,7 @@ export default function Home() {
       <Content>
         <Table>
           <Select />
-          <TableSearch>
-            <div>
-              <span>Pesquisar por</span>
-              <input
-                type="text"
-                placeholder="Pesquisar por nome ou CPF"
-              ></input>
-            </div>
-          </TableSearch>
+          <Input placeholder="Nome ou CPF" label="Pesquisar por" />
 
           <EmployeesList>
             <h2>Listagem de colaboradores</h2>

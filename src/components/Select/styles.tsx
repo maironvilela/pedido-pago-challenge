@@ -5,7 +5,6 @@ type ContentProps = {
 };
 
 export const Container = styled.div<ContentProps>`
-  //height:  //3,6rem
   height: ${(props) => (props.isShowItens ? '52rem' : '5.6rem')};
   width: 100%;
 
@@ -17,6 +16,14 @@ export const Container = styled.div<ContentProps>`
 export const Content = styled.div`
   display: flex;
   align-items: center;
+
+  > span {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #587169;
+  }
   button {
     color: #587169;
     font-size: 2rem;
@@ -29,10 +36,8 @@ export const Content = styled.div`
       color: #00e095;
     }
   }
-
   svg {
     margin-left: auto;
   }
-
   margin-bottom: 2rem;
 `;

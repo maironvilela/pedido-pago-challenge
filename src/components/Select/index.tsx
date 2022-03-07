@@ -29,10 +29,9 @@ export function Select() {
           <Checkbox />
           <Checkbox />
           <Checkbox />
+          <Pagination />
         </>
       )}
-
-      <Pagination />
     </Container>
   );
 }

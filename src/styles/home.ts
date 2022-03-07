@@ -31,35 +31,6 @@ export const Table = styled.div`
   }
 `;
 
-export const TableSearch = styled.div`
-  width: 100%;
-  padding: 0 1.6rem;
-  div {
-    position: relative;
-    margin-top: 2rem;
-
-    span {
-      position: absolute;
-      top: -13px;
-      background: #fff;
-      font-size: 1.4rem;
-      color: #a3b8b0;
-      padding: 0 0.5rem;
-    }
-
-    input {
-      border: none;
-      width: 100%;
-
-      &::placeholder {
-        color: #587169;
-        font-size: 1.6rem;
-        font-weight: 500;
-      }
-    }
-  }
-`;
-
 export const EmployeesList = styled.div`
   margin-top: 4rem;
   width: 100%;
