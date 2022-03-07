@@ -29,46 +29,27 @@ export const Table = styled.div`
 export const TableSearch = styled.div`
   width: 100%;
   padding: 0 1.6rem;
-  > div {
-    height: 5.6rem;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    border: 2px solid #cad6d1;
-    border-radius: 8px;
+  div {
+    position: relative;
+    margin-top: 2rem;
 
     span {
-      color: #587169;
-      font-size: 1.6rem;
-      font-weight: 500;
+      position: absolute;
+      top: -13px;
+      background: #fff;
+      font-size: 1.4rem;
+      color: #a3b8b0;
+      padding: 0 0.5rem;
     }
 
-    svg {
-      margin-left: auto;
-    }
+    input {
+      border: none;
+      width: 100%;
 
-    & + div {
-      position: relative;
-      margin-top: 2rem;
-
-      span {
-        position: absolute;
-        top: -13px;
-        background: #fff;
-        font-size: 1.4rem;
-        color: #a3b8b0;
-        padding: 0 0.5rem;
-      }
-
-      input {
-        border: none;
-        width: 100%;
-
-        &::placeholder {
-          color: #587169;
-          font-size: 1.6rem;
-          font-weight: 500;
-        }
+      &::placeholder {
+        color: #587169;
+        font-size: 1.6rem;
+        font-weight: 500;
       }
     }
   }

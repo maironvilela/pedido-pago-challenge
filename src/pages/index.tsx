@@ -1,7 +1,8 @@
-import { FaEllipsisV, FaChevronUp, FaFileMedical } from 'react-icons/fa';
+import { FaChevronUp, FaFileMedical } from 'react-icons/fa';
 import { Avatar } from '../components/Avatar';
 
 import { Header } from '../components/Header';
+import { Select } from '../components/Select';
 import { Title } from '../components/Title';
 import {
   Button,
@@ -22,12 +23,8 @@ export default function Home() {
 
       <Content>
         <Table>
+          <Select />
           <TableSearch>
-            <div>
-              <span>Colaboradores</span>
-              <FaEllipsisV />
-            </div>
-
             <div>
               <span>Pesquisar por</span>
               <input
