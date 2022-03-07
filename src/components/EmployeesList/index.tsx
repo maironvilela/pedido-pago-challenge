@@ -1,3 +1,5 @@
+import { FaRedoAlt } from 'react-icons/fa';
+import { Button } from '../Button';
 import { EmployeeCard } from '../EmployeeCard';
 import { Container } from './styles';
 
@@ -10,6 +12,11 @@ export function EmployeesList({ title }: EmployeesListProps) {
     <Container className="employees-list">
       <h2>{title}</h2>
       <EmployeeCard />
+      <EmployeeCard />
+      <EmployeeCard />
+      <EmployeeCard />
+      <EmployeeCard />
+      <Button icon={<FaRedoAlt />} label="Carregar Mais" />
     </Container>
   );
 }

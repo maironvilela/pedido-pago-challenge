@@ -1,10 +1,11 @@
 import { Container, Content, List } from './styles';
 import { FaEllipsisV, FaCheck } from 'react-icons/fa';
 import { useCallback, useState } from 'react';
-import { Checkbox } from './SelectItem';
-import { Pagination } from '../Pagination';
+import { SelectItem } from './SelectItem';
 
 export function Select() {
+  const itens = ['Colaboradores', 'Cargos'];
+
   const [isShowItens, setIsShowItens] = useState(false);
 
   const handleShowItens = useCallback(() => {
@@ -22,14 +23,9 @@ export function Select() {
 
       {isShowItens && (
         <List>
-          <Checkbox />
-          <Checkbox />
-          <Checkbox />
-          <Checkbox />
-          <Checkbox />
-          <Checkbox />
-          <Checkbox />
-          <Pagination />
+          {itens.map((item) => (
+            <SelectItem label={item} key={item} />
+          ))}
         </List>
       )}
     </Container>

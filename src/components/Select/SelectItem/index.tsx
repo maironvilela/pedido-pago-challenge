@@ -1,8 +1,12 @@
 import { useCallback, useState } from 'react';
-import { Avatar } from '../../Avatar';
+
 import { Container } from './styles';
 
-export function Checkbox() {
+type SelectItemProps = {
+  label: string;
+};
+
+export function SelectItem({ label }: SelectItemProps) {
   const [isActive, setIsActive] = useState(false);
 
   const handleIsActive = useCallback(() => {
@@ -11,10 +15,7 @@ export function Checkbox() {
 
   return (
     <Container isActive={isActive} onClick={handleIsActive}>
-      <div>
-        <Avatar />
-        <label htmlFor="scales">Scales</label>
-      </div>
+      <span>{label}</span>
     </Container>
   );
 }

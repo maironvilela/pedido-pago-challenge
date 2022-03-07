@@ -6,6 +6,7 @@ export const Container = styled.div`
     font-size: 1.6rem;
     font-weight: 600;
     text-align: left;
+    margin-bottom: 2rem;
   }
 
   .employee-info {

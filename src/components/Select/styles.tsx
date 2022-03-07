@@ -5,7 +5,7 @@ type ContentProps = {
 };
 
 export const Container = styled.div<ContentProps>`
-  height: ${(props) => (props.isShowItens ? '52rem' : '5.6rem')};
+  height: ${(props) => (props.isShowItens ? '15rem' : '5.6rem')};
   width: 100%;
 
   padding: 1rem;
@@ -16,6 +16,7 @@ export const Container = styled.div<ContentProps>`
 export const Content = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 2rem;
 
   > span {
     font-family: Poppins;

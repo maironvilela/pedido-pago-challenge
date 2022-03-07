@@ -5,20 +5,20 @@ type EmployeeInfoProps = {
   label: string;
   description: string;
   isBadge?: ReactNode;
-  type?: 'success' | 'info' | 'warning' | 'danger';
+  type?: 'success' | 'error';
 };
 export function EmployeeInfo({
   label,
   description,
-  isBadge
-}: //type = 'success'
-EmployeeInfoProps) {
+  isBadge,
+  type = 'error'
+}: EmployeeInfoProps) {
   return (
     <Container className="employee-info">
-      <span>{label}</span>
+      <strong>{label}</strong>
 
       {isBadge ? (
-        <Badge description={description} />
+        <Badge description={description} type={type} />
       ) : (
         <span>{description}</span>
       )}

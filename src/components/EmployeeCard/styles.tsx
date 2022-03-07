@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+type ContainerProps = {
+  isShowDetails: boolean;
+};
+
+export const Container = styled.div<ContainerProps>`
   font-weight: 600;
   font-size: 12px;
   line-height: 140%;
@@ -8,34 +12,36 @@ export const Container = styled.div`
   padding: 1rem;
   border-radius: 8px 8px 0px 0px;
 
+  border: ${(props) => props.isShowDetails && '1px solid #1dd195'};
   header {
-    margin-top: 2rem;
     color: #587169;
   }
-  section {
+  > div {
+    padding: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 2rem;
     div {
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      align-items: center;
+
       span {
         margin-left: 1rem;
-        width: 80%;
         color: #587169;
         font-weight: 600;
         font-size: 12px;
       }
     }
 
-    svg {
+    button {
       margin-left: auto;
+      border: none;
+      background: none;
     }
   }
 
-  section + section {
+  .info {
     display: grid;
     grid-template-columns: 40% 60%;
     column-gap: 50px;
