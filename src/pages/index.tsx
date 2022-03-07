@@ -1,9 +1,10 @@
-import { FaEllipsisV, FaChevronUp } from 'react-icons/fa';
+import { FaEllipsisV, FaChevronUp, FaFileMedical } from 'react-icons/fa';
 import { Avatar } from '../components/Avatar';
 
 import { Header } from '../components/Header';
 import { Title } from '../components/Title';
 import {
+  Button,
   Container,
   Content,
   EmployeeCard,
@@ -69,9 +70,23 @@ export default function Home() {
 
                 <div>
                   <span>Unidade</span>
-                  <span>QUartel General</span>
+                  <span>Quartel General</span>
                 </div>
               </section>
+
+              <section>
+                <div>
+                  <span>Status</span>
+                  <div className="status">
+                    <span>Ativo</span>
+                  </div>
+                </div>
+              </section>
+
+              <Button>
+                <FaFileMedical />
+                <span>Açoes</span>
+              </Button>
             </EmployeeCard>
           </EmployeesList>
         </Table>
