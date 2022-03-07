@@ -1,4 +1,4 @@
-import { Container, Content } from './styles';
+import { Container, Content, List } from './styles';
 import { FaEllipsisV, FaCheck } from 'react-icons/fa';
 import { useCallback, useState } from 'react';
 import { Checkbox } from './SelectItem';
@@ -21,7 +21,7 @@ export function Select() {
       </Content>
 
       {isShowItens && (
-        <>
+        <List>
           <Checkbox />
           <Checkbox />
           <Checkbox />
@@ -30,7 +30,7 @@ export function Select() {
           <Checkbox />
           <Checkbox />
           <Pagination />
-        </>
+        </List>
       )}
     </Container>
   );

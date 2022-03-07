@@ -40,3 +40,10 @@ export const Content = styled.div`
     margin-left: auto;
   }
 `;
+
+export const List = styled.div`
+  .pagination {
+    margin-top: 1rem;
+    float: right;
+  }
+`;

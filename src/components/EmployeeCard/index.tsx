@@ -1,5 +1,4 @@
-import { FaChevronUp, FaFileMedical } from 'react-icons/fa';
-import { Button } from '../../styles/home';
+import { FaChevronUp } from 'react-icons/fa';
 import { Avatar } from '../Avatar';
 import { EmployeeInfo } from '../EmployeeInfo';
 import { Container } from './styles';
@@ -25,11 +24,6 @@ export function EmployeeCard() {
         <EmployeeInfo label="Unidade" description="Quartel General" />
         <EmployeeInfo label="status" description="Ativo" isBadge={true} />
       </section>
-
-      <Button>
-        <FaFileMedical />
-        <span>Açoes</span>
-      </Button>
     </Container>
   );
 }
