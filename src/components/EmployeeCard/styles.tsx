@@ -17,7 +17,8 @@ export const Container = styled.div<ContainerProps>`
   border: ${(props) =>
     props.isShowDetails && `1px solid ${props.theme.colors.green[300]}`};
   header {
-    color: ${(props) => props.theme.colors.green[600]};
+    color: ${(props) => props.theme.colors.green[500]};
+    font-size: ${(props) => props.theme.font.sizes.xsmall};
   }
   > div {
     padding: 1rem;

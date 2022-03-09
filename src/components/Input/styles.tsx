@@ -21,7 +21,7 @@ export const Container = styled.div`
   div {
     display: flex;
     align-items: center;
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
     svg {
       color: ${(props) => props.theme.colors.green[500]};
     }
@@ -29,14 +29,12 @@ export const Container = styled.div`
     input {
       border: none;
       width: 100%;
-      margin-left: 0.8rem;
-      font-weight: ${(props) => props.theme.font.medium};
+      margin-left: 0.5rem;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
       color: ${(props) => props.theme.colors.green[500]};
-      &::placeholder {
-        font-weight: ${(props) => props.theme.font.bold};
-        color: ${(props) => props.theme.colors.green[500]};
-        line-height: 150%;
-      }
     }
   }
 `;

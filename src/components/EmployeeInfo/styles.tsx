@@ -9,6 +9,8 @@ export const Container = styled.div`
   span {
     color: ${(props) => props.theme.colors.green[500]};
     font-size: ${(props) => props.theme.font.sizes.small};
+    font-weight: ${(props) => props.theme.font.normal};
+
     line-height: 140%;
   }
 `;
