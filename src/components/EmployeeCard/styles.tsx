@@ -31,6 +31,7 @@ export const Container = styled.div<ContainerProps>`
         color: #587169;
         font-weight: 600;
         font-size: 12px;
+        width: 80%;
       }
     }
 

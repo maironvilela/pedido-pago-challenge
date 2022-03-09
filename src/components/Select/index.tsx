@@ -3,14 +3,23 @@ import { FaEllipsisV, FaCheck } from 'react-icons/fa';
 import { useCallback, useState } from 'react';
 import { SelectItem } from './SelectItem';
 
-export function Select() {
-  const [selectedOption, setSelectedOption] = useState('Selecione uma Opção');
+type SelectProps = {
+  setSelectedOption(label: string): void;
+  selectedOption: string;
+  itens: string[];
+};
 
-  const handleIsActive = useCallback((label: string) => {
-    setSelectedOption(label);
-  }, []);
-
-  const itens = ['Colaboradores', 'Cargos'];
+export function Select({
+  setSelectedOption,
+  selectedOption,
+  itens
+}: SelectProps) {
+  const handleIsActive = useCallback(
+    (label: string) => {
+      setSelectedOption(label);
+    },
+    [setSelectedOption]
+  );
 
   const [isShowItens, setIsShowItens] = useState(false);
 
