@@ -4,7 +4,7 @@ export const Container = styled.div`
   height: 5.6rem;
   width: 100%;
   padding: 1rem;
-  border: 2px solid #cad6d1;
+  border: 2px solid ${(props) => props.theme.colors.white[500]};
   border-radius: 8px;
   position: relative;
   margin-top: 2rem;
@@ -12,9 +12,9 @@ export const Container = styled.div`
   > span {
     position: absolute;
     top: -13px;
-    background: #fff;
-    font-size: 1.4rem;
-    color: #a3b8b0;
+    background: ${(props) => props.theme.colors.white[0]};
+    font-size: ${(props) => props.theme.font.sizes.small};
+    color: ${(props) => props.theme.colors.green[400]};
     padding: 0 0.5rem;
   }
 
@@ -23,24 +23,18 @@ export const Container = styled.div`
     align-items: center;
     margin-top: 0.3rem;
     svg {
-      color: #587169;
+      color: ${(props) => props.theme.colors.green[500]};
     }
 
     input {
       border: none;
       width: 100%;
       margin-left: 0.8rem;
-      font-family: Poppins;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      color: #587169;
+      font-weight: ${(props) => props.theme.font.medium};
+      color: ${(props) => props.theme.colors.green[500]};
       &::placeholder {
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        color: #587169;
+        font-weight: ${(props) => props.theme.font.bold};
+        color: ${(props) => props.theme.colors.green[500]};
         line-height: 150%;
       }
     }

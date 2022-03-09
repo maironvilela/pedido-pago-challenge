@@ -2,17 +2,13 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   strong {
-    color: #587169;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: ${(props) => props.theme.font.bold};
+    font-size: ${(props) => props.theme.font.sizes.small};
     line-height: 140%;
   }
   span {
-    color: #587169;
-    font-weight: normal;
-
-    font-size: 12px;
+    color: ${(props) => props.theme.colors.green[500]};
+    font-size: ${(props) => props.theme.font.sizes.small};
     line-height: 140%;
   }
 `;

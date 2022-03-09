@@ -9,9 +9,9 @@ export const Container = styled.div`
   }
 
   span {
-    color: #34423d;
-    background: #b5f1dd;
+    color: ${(props) => props.theme.colors.green[600]};
+    background: ${(props) => props.theme.colors.green[100]};
     padding: 0.8rem;
-    font-size: 1.4rem;
+    font-size: ${(props) => props.theme.font.sizes.small};
   }
 `;

@@ -10,7 +10,6 @@ import { Container, Content, Table } from '../styles/home';
 export default function Home() {
   const [selectedOption, setSelectedOption] = useState('Colaboradores');
   const itens = ['Colaboradores', 'Cargos'];
-
   const placeholder = useMemo(() => {
     const itensLabel = {
       colaboradores: 'Nome ou CPF',

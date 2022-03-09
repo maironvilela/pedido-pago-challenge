@@ -7,10 +7,12 @@ export const Container = styled.button<Container>`
   margin-bottom: 1rem;
   width: 100%;
   border: none;
-  background-color: ${(props) => (props.isActive ? '#e5fbeb' : '#ffff ')};
+  background-color: ${(props) =>
+    props.isActive
+      ? props.theme.colors.green[100]
+      : 'props.theme.colors.white[0] '};
   padding: 0.5rem;
   border-radius: 8px;
-  border: 1px solid #eaefed;
   div {
     display: flex;
     flex-direction: row;

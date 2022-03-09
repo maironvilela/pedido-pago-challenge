@@ -5,16 +5,19 @@ type ContainerProps = {
 };
 
 export const Container = styled.div<ContainerProps>`
+  padding: 1rem;
+
   font-weight: 600;
   font-size: 12px;
   line-height: 140%;
-  border: 2px solid #eaefed;
-  padding: 1rem;
+
+  border: 2px solid ${(props) => props.theme.colors.white[300]};
   border-radius: 8px 8px 0px 0px;
 
-  border: ${(props) => props.isShowDetails && '1px solid #1dd195'};
+  border: ${(props) =>
+    props.isShowDetails && `1px solid ${props.theme.colors.green[300]}`};
   header {
-    color: #587169;
+    color: ${(props) => props.theme.colors.green[600]};
   }
   > div {
     padding: 1rem;
@@ -28,9 +31,9 @@ export const Container = styled.div<ContainerProps>`
 
       span {
         margin-left: 1rem;
-        color: #587169;
-        font-weight: 600;
-        font-size: 12px;
+        color: ${(props) => props.theme.colors.green[500]};
+        font-weight: ${(props) => props.theme.font.bold};
+        font-size: ${(props) => props.theme.font.sizes.xsmall};
         width: 80%;
       }
     }

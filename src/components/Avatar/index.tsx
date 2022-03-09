@@ -11,21 +11,19 @@ const bounce = keyframes({
     transform: 'translate3d(0,0,0)'
   },
   '40%, 43%': {
-    transform: 'translate3d(0, -30px, 0)'
+    transform: 'translate3d(0, -5px, 0)'
   },
   '70%': {
     transform: 'translate3d(0, -15px, 0)'
   },
   '90%': {
-    transform: 'translate3d(0, -4px, 0)'
+    transform: 'translate3d(0, -10px, 0)'
   }
 });
 
 export function Avatar({ url, isActive = false }: AvatarProps) {
   const animation = css({
     width: 96,
-    height: 96,
-    borderRadius: '50%',
     animation: `${bounce} 2s ease infinite`,
     transformOrigin: 'center bottom'
   });

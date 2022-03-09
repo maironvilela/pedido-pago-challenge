@@ -5,13 +5,13 @@ type EmployeeInfoProps = {
   label: string;
   description: string;
   isBadge?: ReactNode;
-  type?: 'success' | 'error';
+  type?: 'active' | 'inactive';
 };
 export function EmployeeInfo({
   label,
   description,
   isBadge,
-  type = 'error'
+  type = 'inactive'
 }: EmployeeInfoProps) {
   return (
     <Container className="employee-info">

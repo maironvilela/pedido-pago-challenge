@@ -9,7 +9,7 @@ export const Container = styled.div<ContentProps>`
   width: 100%;
 
   padding: 1rem;
-  border: 2px solid #cad6d1;
+  border: 2px solid ${(props) => props.theme.colors.white[500]};
   border-radius: 8px;
 `;
 
@@ -23,7 +23,7 @@ export const Content = styled.div`
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    color: #587169;
+    color: ${(props) => props.theme.colors.green[500]};
   }
   button {
     color: #587169;

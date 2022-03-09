@@ -18,7 +18,7 @@ export const GlobalStyle = (props: GlobalProps) => (
       }
       body {
         background: #f8faf9;
-        color: #34423d;
+        color: #587169;
         font-size: 1.6rem;
         font-family: 'Poppins', sans-serif;
         -webkit-font-smoothing: antialiased;
