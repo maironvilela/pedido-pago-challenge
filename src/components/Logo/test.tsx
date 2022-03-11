@@ -2,7 +2,7 @@ import { screen, render } from '@testing-library/react';
 import { Logo } from '../Logo';
 
 describe('<Logo />', () => {
-  it('  should be able to render logo icons with correct colors', () => {
+  it('should be able to render logo icons with correct colors', () => {
     render(<Logo />);
 
     expect(screen.getByLabelText(/logo_blue_pedido_pago/i)).toHaveStyle({
