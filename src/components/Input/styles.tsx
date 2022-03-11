@@ -9,13 +9,14 @@ export const Container = styled.div`
   position: relative;
   margin-top: 2rem;
 
-  > span {
+  span {
     position: absolute;
     top: -13px;
     background: ${(props) => props.theme.colors.white[0]};
     font-size: ${(props) => props.theme.font.sizes.small};
     color: ${(props) => props.theme.colors.green[400]};
     padding: 0 0.5rem;
+    font-weight: ${(props) => props.theme.font.medium};
   }
 
   div {
