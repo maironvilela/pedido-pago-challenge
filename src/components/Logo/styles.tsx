@@ -1,19 +1,22 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export const Container = styled.div`
-  position: relative;
-  > svg {
-    color: #034afd;
+  ${({ theme }) => css`
     position: relative;
-    width: 3.5rem;
-    height: 3.5rem;
-
-    & + svg {
+    > svg {
+      color: ${theme.colors.blue};
       position: relative;
-      color: #00e095;
-      fill-opacity: 0.85;
-      top: 0.6rem;
-      left: -3rem;
+      width: 3.5rem;
+      height: 3.5rem;
+
+      & + svg {
+        position: relative;
+        color: ${theme.colors.green[300]};
+        fill-opacity: 0.85;
+        top: 0.6rem;
+        left: -3rem;
+      }
     }
-  }
+  `}
 `;

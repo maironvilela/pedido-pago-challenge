@@ -1,9 +1,12 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.header`
-  background-color: ${(props) => props.theme.colors.white[0]};
-  height: 6.1rem;
-  border-bottom: 2px solid ${(props) => props.theme.colors.white[300]}; ; ;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.white[0]};
+    height: 6.1rem;
+    border-bottom: 2px solid ${theme.colors.white[300]}; ; ;
+  `}
 `;
 
 export const Content = styled.div`
@@ -11,7 +14,6 @@ export const Content = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   height: 100%;
 
   .avatar {

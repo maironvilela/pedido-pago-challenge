@@ -1,16 +1,19 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  strong {
-    font-weight: ${(props) => props.theme.font.bold};
-    font-size: ${(props) => props.theme.font.sizes.small};
-    line-height: 140%;
-  }
-  span {
-    color: ${(props) => props.theme.colors.green[500]};
-    font-size: ${(props) => props.theme.font.sizes.small};
-    font-weight: ${(props) => props.theme.font.normal};
+  ${({ theme }) => css`
+    strong {
+      font-weight: ${theme.font.bold};
+      font-size: ${theme.font.sizes.small};
+      line-height: 140%;
+    }
+    span {
+      color: ${theme.colors.green[500]};
+      font-size: ${theme.font.sizes.small};
+      font-weight: ${theme.font.normal};
 
-    line-height: 140%;
-  }
+      line-height: 140%;
+    }
+  `}
 `;
