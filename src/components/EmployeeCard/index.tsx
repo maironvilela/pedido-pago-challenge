@@ -20,7 +20,7 @@ export function EmployeeCard() {
       <header>Nome Completo</header>
       <div>
         <div>
-          <Avatar url={url} isActive={isShowDetails} />
+          <Avatar imgUrl={url} fullName="Fulano de Tal" />
           <span>Pikachu Soares dos Santos Dias</span>
         </div>
         <button type="button" onClick={handleShowDetails}>
