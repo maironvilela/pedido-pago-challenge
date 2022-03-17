@@ -5,7 +5,12 @@ import { Avatar } from '.';
 
 export default {
   title: 'Avatar',
-  component: Avatar
+  component: Avatar,
+  args: {
+    fullName: 'Fulano de Tal Jose'
+  }
 } as ComponentMeta<typeof Avatar>;
 
-export const Default: ComponentStory<typeof Avatar> = () => <Avatar />;
+export const Default: ComponentStory<typeof Avatar> = () => (
+  <Avatar fullName="Fulano de Tal" />
+);

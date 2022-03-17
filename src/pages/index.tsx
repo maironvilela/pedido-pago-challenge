@@ -7,7 +7,11 @@ import { Title } from '../components/Title';
 
 import { Container, Content, Table } from '../styles/home';
 
-export default function Home() {
+type HomeProps = {
+  fullName: string;
+};
+
+export default function Home({ fullName }: HomeProps) {
   const [selectedOption, setSelectedOption] = useState('Colaboradores');
   const itens = ['Colaboradores', 'Cargos'];
   const placeholder = useMemo(() => {
@@ -29,7 +33,7 @@ export default function Home() {
 
   return (
     <Container>
-      <Header />
+      <Header fullName={fullName} />
       <Content>
         <Title title="Colaboradores" />
         <Table>

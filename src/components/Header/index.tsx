@@ -2,11 +2,15 @@ import { Avatar } from '../Avatar';
 import { Logo } from '../Logo';
 import { Container, Content } from './styles';
 
-export function Header() {
+type HeaderProps = {
+  fullName: string;
+};
+
+export function Header({ fullName }: HeaderProps) {
   return (
     <Container>
       <Content>
-        <Avatar />
+        <Avatar fullName={fullName} />
         <Logo />
       </Content>
     </Container>
