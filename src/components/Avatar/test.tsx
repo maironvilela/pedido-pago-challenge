@@ -10,6 +10,17 @@ describe('<Avatar />', () => {
     expect(screen.getByText(/ft/i)).toBeInTheDocument();
   });
 
+  it('should be able to render name initials if avatar image was not provided with main styles ', () => {
+    renderWithTheme(<Avatar fullName="Fulano de Tal" />);
+
+    expect(screen.getByText(/ft/i)).toHaveStyle({
+      background: '#B5F1DD',
+      width: '3.2rem',
+      height: '3.2rem',
+      'font-size': '1.4rem'
+    });
+  });
+
   it('should be able to render avatar image if avatar image provided', () => {
     const imgUrl = faker.image.avatar();
     const fullName = faker.name.findName();

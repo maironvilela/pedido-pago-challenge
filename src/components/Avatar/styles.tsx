@@ -6,8 +6,8 @@ export const Container = styled.div`
     span,
     img {
       border-radius: 50%;
-      width: 3.6rem;
-      height: 3.6rem;
+      width: 3.2rem;
+      height: 3.2rem;
     }
 
     span {
@@ -15,6 +15,8 @@ export const Container = styled.div`
       background: ${theme.colors.green[100]};
       padding: 0.8rem;
       font-size: ${theme.font.sizes.small};
+      width: 3.2rem;
+      height: 3.2rem;
     }
   `}
 `;

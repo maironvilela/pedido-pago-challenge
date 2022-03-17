@@ -21,6 +21,7 @@ export const GlobalStyle = (props: GlobalProps) => (
         color: #587169;
         font-size: 1.6rem;
         font-family: 'Poppins', sans-serif;
+        font-weight: 400;
         -webkit-font-smoothing: antialiased;
       }
 
