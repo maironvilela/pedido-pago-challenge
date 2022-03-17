@@ -16,6 +16,8 @@ export const Container = styled.div`
         fill-opacity: 0.85;
         top: 0.6rem;
         left: -3rem;
+        width: 3.5rem;
+        height: 3.5rem;
       }
     }
   `}

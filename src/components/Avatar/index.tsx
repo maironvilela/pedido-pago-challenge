@@ -16,7 +16,11 @@ export function Avatar({ imgUrl, fullName }: AvatarProps) {
 
   return (
     <Container className="avatar">
-      {imgUrl ? <img src={imgUrl} /> : <span>{nameInitials}</span>}
+      {imgUrl ? (
+        <img src={imgUrl} aria-label={`Avatar ${fullName}`} />
+      ) : (
+        <span>{nameInitials}</span>
+      )}
     </Container>
   );
 }
