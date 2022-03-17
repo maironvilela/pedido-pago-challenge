@@ -12,8 +12,10 @@ export const Container = styled.strong<ContainerProps>`
     background: ${type === 'inactive'
       ? theme.colors.white[300]
       : theme.colors.green[100]};
+    color: ${theme.colors.green[700]};
     border-radius: 999px;
     text-align: center;
     font-weight: ${theme.font.medium};
+    font-size: 1.4rem;
   `}
 `;
