@@ -17,7 +17,8 @@ describe('<Avatar />', () => {
       background: '#B5F1DD',
       width: '3.2rem',
       height: '3.2rem',
-      'font-size': '1.4rem'
+      'font-size': '1.4rem',
+      'border-radius': '50%'
     });
   });
 
@@ -27,5 +28,18 @@ describe('<Avatar />', () => {
     renderWithTheme(<Avatar fullName={fullName} imgUrl={imgUrl} />);
 
     expect(screen.getByLabelText(`Avatar ${fullName}`)).toBeInTheDocument();
+  });
+
+  it('should be able to render avatar image with main styles if avatar image provided ', () => {
+    const imgUrl = faker.image.avatar();
+    const fullName = faker.name.findName();
+
+    renderWithTheme(<Avatar fullName={fullName} imgUrl={imgUrl} />);
+
+    expect(screen.getByLabelText(`Avatar ${fullName}`)).toHaveStyle({
+      'border-radius': '50%',
+      width: '3.2rem',
+      height: '3.2rem'
+    });
   });
 });
