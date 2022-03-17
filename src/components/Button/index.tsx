@@ -3,7 +3,7 @@ import { Container } from './styles';
 
 type ButtonProps = {
   label: string;
-  icon: ReactNode;
+  icon?: ReactNode;
 };
 
 export const Button = ({ label, icon }: ButtonProps) => (
