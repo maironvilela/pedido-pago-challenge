@@ -5,15 +5,15 @@ import { FaChevronDown as IconFaChevronDown } from 'react-icons/fa';
 
 describe('<Button />', () => {
   it('should be able render Button Component with label', () => {
-    renderWithTheme(<Button label="Salvar" />);
+    renderWithTheme(<Button>Salvar</Button>);
     expect(screen.getByText('Salvar')).toBeInTheDocument();
   });
 
   it('should be able render Button Component with label and icon', () => {
     renderWithTheme(
-      <Button label="Salvar" icon={<IconFaChevronDown aria-hidden="true" />} />
+      <Button icon={<IconFaChevronDown data-testid="icon" />}>Salvar</Button>
     );
     expect(screen.getByText('Salvar')).toBeInTheDocument();
-    expect(screen.getByRole('button', { hidden: true }));
+    expect(screen.getByTestId('icon')).toBeInTheDocument();
   });
 });

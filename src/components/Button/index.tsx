@@ -2,13 +2,13 @@ import { ReactNode } from 'react';
 import { Container } from './styles';
 
 type ButtonProps = {
-  label: string;
-  icon?: ReactNode;
+  children?: ReactNode;
+  icon?: JSX.Element;
 };
 
-export const Button = ({ label, icon }: ButtonProps) => (
+export const Button = ({ children, icon }: ButtonProps) => (
   <Container>
     {icon}
-    <span>{label}</span>
+    <span>{children}</span>
   </Container>
 );
