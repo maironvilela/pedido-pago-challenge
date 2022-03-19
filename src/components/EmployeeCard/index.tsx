@@ -26,7 +26,7 @@ export function EmployeeCard({
   employeesInfo
 }: EmployeeCardProps) {
   console.log(employeesInfo);
-  const [isShowDetails, setIsShowDetails] = useState(true);
+  const [isShowDetails, setIsShowDetails] = useState(false);
 
   const handleShowDetails = useCallback(() => {
     setIsShowDetails((isShowDetails) => !isShowDetails);
@@ -40,7 +40,11 @@ export function EmployeeCard({
           <Avatar imgUrl={imgUrl} fullName={name} />
           <span>{name}</span>
         </div>
-        <button type="button" onClick={handleShowDetails}>
+        <button
+          type="button"
+          onClick={handleShowDetails}
+          data-testid="btnToggle"
+        >
           {isShowDetails ? <FaChevronUp /> : <FaChevronDown />}
         </button>
       </div>
