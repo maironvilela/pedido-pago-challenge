@@ -7,7 +7,7 @@ type ButtonProps = {
 };
 
 export const Button = ({ children, icon }: ButtonProps) => (
-  <Container>
+  <Container className="button">
     {icon}
     <span>{children}</span>
   </Container>

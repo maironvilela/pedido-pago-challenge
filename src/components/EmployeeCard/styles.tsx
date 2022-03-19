@@ -8,7 +8,6 @@ type ContainerProps = {
 export const Container = styled.div<ContainerProps>`
   ${({ theme, isShowDetails }) => css`
     padding: 1rem;
-
     font-weight: 600;
     font-size: 12px;
     line-height: 140%;
@@ -40,7 +39,7 @@ export const Container = styled.div<ContainerProps>`
         }
       }
 
-      button {
+      > button {
         margin-left: auto;
         border: none;
         background: none;
@@ -48,19 +47,23 @@ export const Container = styled.div<ContainerProps>`
     }
 
     .info {
+      padding: 0 2rem;
+      margin-top: 2.4rem;
       display: grid;
-      grid-template-columns: 40% 60%;
-      column-gap: 50px;
+      grid-template-columns: 50% 50%;
+      column-gap: 5rem;
+      row-gap: 2rem;
       font-size: 1.2rem;
 
       div {
         display: flex;
         width: 100%;
         flex-direction: column;
-
-        & + div {
-        }
       }
+    }
+
+    .button {
+      margin-top: 2rem;
     }
   `}
 `;

@@ -5,14 +5,10 @@ export const Container = styled.button`
   ${({ theme }) => css`
     display: flex;
     justify-content: center;
-
-    background: ${theme.colors.white[0]};
-
+    align-items: center;
     width: 100%;
-
+    background: ${theme.colors.white[0]};
     padding: 1.6rem;
-    margin-top: 1.6rem;
-
     border-radius: 8px;
     border: 2px solid ${theme.colors.green[100]};
 
@@ -25,7 +21,6 @@ export const Container = styled.button`
     svg {
       width: 4rem;
       height: 2.2rem;
-
       color: ${theme.colors.green[300]};
     }
   `}
