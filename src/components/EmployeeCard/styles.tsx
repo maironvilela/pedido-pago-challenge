@@ -17,6 +17,11 @@ export const Container = styled.div<ContainerProps>`
     border-radius: 8px 8px 0px 0px;
 
     border: ${isShowDetails && `1px solid ${theme.colors.green[300]}`};
+  `}
+`;
+
+export const InitialInformation = styled.section`
+  ${({ theme }) => css`
     header {
       color: ${theme.colors.green[500]};
       font-size: ${theme.font.sizes.xsmall};
@@ -46,25 +51,44 @@ export const Container = styled.div<ContainerProps>`
         background: none;
       }
     }
+  `}
+`;
 
-    .info {
-      padding: 0 2rem;
-      margin-top: 2.4rem;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      column-gap: 5rem;
-      row-gap: 2rem;
-      font-size: 1.2rem;
+export const Details = styled.section`
+  padding: 0 2rem;
+  margin-top: 2.4rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 5rem;
+  row-gap: 2rem;
+  font-size: 1.2rem;
 
-      div {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
+  div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+`;
+
+export const Actions = styled.section`
+  margin-top: 2rem;
+  button {
+    transition: 0.5s;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+    color: #6d6dd6;
+    svg {
+      color: #6d6dd6;
+    }
+    & + button {
+      margin-top: 0.5rem;
+      color: #d67e7e;
+
+      svg {
+        color: #d67e7e;
       }
     }
-
-    .button {
-      margin-top: 2rem;
-    }
-  `}
+  }
 `;

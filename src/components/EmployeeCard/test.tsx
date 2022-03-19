@@ -85,6 +85,9 @@ describe('<EmployeeCard />', () => {
     expect(screen.getByText('123456789')).toBeInTheDocument();
     expect(screen.getByText('Unidade')).toBeInTheDocument();
     expect(screen.getByText('Quartel General')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Ações/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Editar/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /Excluir/i })
+    ).toBeInTheDocument();
   });
 });

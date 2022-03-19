@@ -1,9 +1,13 @@
 import { useCallback, useState } from 'react';
-import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
+import {
+  FaChevronUp,
+  FaChevronDown,
+  FaRegEdit,
+  FaRegTrashAlt
+} from 'react-icons/fa';
 import { Avatar } from '../Avatar';
 import { EmployeeInfo } from '../EmployeeInfo';
-import { Container } from './styles';
-import { AiOutlineFileAdd } from 'react-icons/ai';
+import { Container, Actions, InitialInformation, Details } from './styles';
 import { Button } from '../Button';
 
 export type EmployeeInfo = {
@@ -38,24 +42,26 @@ export function EmployeeCard({ header, employee }: EmployeeCardProps) {
       isShowDetails={isShowDetails}
       isActive={!!employee.isActive}
     >
-      <header>{header}</header>
-      <div>
+      <InitialInformation>
+        <header>{header}</header>
         <div>
-          <Avatar imgUrl={employee.imgUrl} fullName={employee.name} />
-          <span>{employee.name}</span>
+          <div>
+            <Avatar imgUrl={employee.imgUrl} fullName={employee.name} />
+            <span>{employee.name}</span>
+          </div>
+          <button
+            type="button"
+            onClick={handleShowDetails}
+            data-testid="btnToggle"
+          >
+            {isShowDetails ? <FaChevronUp /> : <FaChevronDown />}
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={handleShowDetails}
-          data-testid="btnToggle"
-        >
-          {isShowDetails ? <FaChevronUp /> : <FaChevronDown />}
-        </button>
-      </div>
+      </InitialInformation>
 
       {isShowDetails && (
         <>
-          <section className="info">
+          <Details>
             {employee.employeesInfo?.map((info) => (
               <EmployeeInfo
                 key={info.id}
@@ -64,8 +70,12 @@ export function EmployeeCard({ header, employee }: EmployeeCardProps) {
                 isBadge={!!info.isBadge}
               />
             ))}
-          </section>
-          <Button icon={<AiOutlineFileAdd />}>Ações</Button>
+          </Details>
+
+          <Actions>
+            <Button icon={<FaRegEdit />}>Editar</Button>
+            <Button icon={<FaRegTrashAlt />}>Excluir</Button>
+          </Actions>
         </>
       )}
     </Container>
