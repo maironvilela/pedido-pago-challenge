@@ -27,7 +27,7 @@ describe('<EmployeeInfo />', () => {
     });
   });
 
-  it('should be able render default description provider the isBadge=true property', () => {
+  it('should be able render badge if badge=true property is provider', () => {
     const args = {
       label: 'Cargo',
       description: 'Administrador',
