@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 type ContainerProps = {
   isShowDetails: boolean;
+  isActive: boolean;
 };
 
 export const Container = styled.div<ContainerProps>`
