@@ -26,4 +26,17 @@ describe('<EmployeeInfo />', () => {
       background: '#EAEFED'
     });
   });
+
+  it('should be able render default description provider the isBadge=true property', () => {
+    const args = {
+      label: 'Cargo',
+      description: 'Administrador',
+      isBadge: true
+    };
+    renderWithTheme(<EmployeeInfo {...args} />);
+
+    expect(screen.getByText('Administrador')).toHaveStyle({
+      background: '#EAEFED'
+    });
+  });
 });
