@@ -29,7 +29,6 @@ export type EmployeeCardProps = {
 };
 
 export function EmployeeCard({ header, employee }: EmployeeCardProps) {
-  console.log(employee);
   const [isShowDetails, setIsShowDetails] = useState(false);
 
   const handleShowDetails = useCallback(() => {
