@@ -17,18 +17,21 @@ export type EmployeeInfo = {
   isBadge?: boolean;
 };
 
-type Employee = {
+export type EmployeeCardProps = {
+  header: string;
   imgUrl: string;
   name: string;
   employeesInfo: EmployeeInfo[];
   isActive?: boolean;
 };
-export type EmployeeCardProps = {
-  header: string;
-  employee: Employee;
-};
 
-export function EmployeeCard({ header, employee }: EmployeeCardProps) {
+export function EmployeeCard({
+  header,
+  imgUrl,
+  name,
+  employeesInfo,
+  isActive
+}: EmployeeCardProps) {
   const [isShowDetails, setIsShowDetails] = useState(false);
 
   const handleShowDetails = useCallback(() => {
@@ -36,17 +39,13 @@ export function EmployeeCard({ header, employee }: EmployeeCardProps) {
   }, []);
 
   return (
-    <Container
-      className="employees-card"
-      isShowDetails={isShowDetails}
-      isActive={!!employee.isActive}
-    >
-      <InitialInformation>
+    <Container className="employees-card" isShowDetails={isShowDetails}>
+      <InitialInformation isActive={!!isActive}>
         <header>{header}</header>
         <div>
           <div>
-            <Avatar imgUrl={employee.imgUrl} fullName={employee.name} />
-            <span>{employee.name}</span>
+            <Avatar imgUrl={imgUrl} fullName={name} />
+            <span>{name}</span>
           </div>
           <button
             type="button"
@@ -61,7 +60,7 @@ export function EmployeeCard({ header, employee }: EmployeeCardProps) {
       {isShowDetails && (
         <>
           <Details>
-            {employee.employeesInfo?.map((info) => (
+            {employeesInfo?.map((info) => (
               <EmployeeInfo
                 key={info.id}
                 label={info.label}

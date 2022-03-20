@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 
 type ContainerProps = {
   isShowDetails: boolean;
-  isActive: boolean;
 };
 
 export const Container = styled.div<ContainerProps>`
@@ -20,7 +19,11 @@ export const Container = styled.div<ContainerProps>`
   `}
 `;
 
-export const InitialInformation = styled.section`
+type InitialInformationProps = {
+  isActive: boolean;
+};
+
+export const InitialInformation = styled.section<InitialInformationProps>`
   ${({ theme }) => css`
     header {
       color: ${theme.colors.green[500]};

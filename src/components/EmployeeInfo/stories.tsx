@@ -12,8 +12,8 @@ export default {
     }
   },
   args: {
-    label: 'Cargo',
-    description: 'Administrador',
+    label: 'Status',
+    description: 'Ativo',
     type: 'active',
     isBadge: true
   }

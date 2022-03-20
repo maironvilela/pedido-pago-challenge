@@ -7,57 +7,51 @@ import { renderWithTheme } from '../../utils/tests/helpers';
 describe('<EmployeeCard />', () => {
   it('should be able render EmployeeCard with main information', () => {
     const args = {
-      employee: {
-        name: faker.name.findName(),
-        employeesInfo: [],
-        imgUrl: faker.image.avatar(),
-        isActive: true
-      },
+      name: faker.name.findName(),
+      employeesInfo: [],
+      imgUrl: faker.image.avatar(),
+      isActive: true,
       header: 'Nome Completo'
     };
     renderWithTheme(<EmployeeCard {...args} />);
-    expect(
-      screen.getByLabelText(`Avatar ${args.employee.name}`)
-    ).toBeInTheDocument();
-    expect(screen.getByText(`${args.employee.name}`)).toBeInTheDocument();
+    expect(screen.getByLabelText(`Avatar ${args.name}`)).toBeInTheDocument();
+    expect(screen.getByText(`${args.name}`)).toBeInTheDocument();
     expect(screen.getByText('Nome Completo')).toBeInTheDocument();
     expect(screen.getByTestId('btnToggle')).toBeInTheDocument();
   });
   it('should be able to toggle the view of employee details', () => {
     const args = {
-      employee: {
-        imgUrl: faker.image.avatar(),
-        name: faker.name.findName(),
-        isActive: true,
-        employeesInfo: [
-          {
-            id: 1,
-            label: 'Departamento',
-            description: 'Administrativo'
-          },
-          {
-            id: 2,
-            label: 'Cargo',
-            description: 'Diretor'
-          },
-          {
-            id: 3,
-            label: 'Código da Unidade',
-            description: '123456789'
-          },
-          {
-            id: 4,
-            label: 'Unidade',
-            description: 'Quartel General'
-          },
-          {
-            id: 5,
-            label: 'Status',
-            description: 'Ativo',
-            isBadge: true
-          }
-        ]
-      },
+      imgUrl: faker.image.avatar(),
+      name: faker.name.findName(),
+      isActive: true,
+      employeesInfo: [
+        {
+          id: 1,
+          label: 'Departamento',
+          description: 'Administrativo'
+        },
+        {
+          id: 2,
+          label: 'Cargo',
+          description: 'Diretor'
+        },
+        {
+          id: 3,
+          label: 'Código da Unidade',
+          description: '123456789'
+        },
+        {
+          id: 4,
+          label: 'Unidade',
+          description: 'Quartel General'
+        },
+        {
+          id: 5,
+          label: 'Status',
+          description: 'Ativo',
+          isBadge: true
+        }
+      ],
       header: 'Nome Completo'
     };
     renderWithTheme(<EmployeeCard {...args} />);
