@@ -14,5 +14,9 @@ export const Container = styled.div`
     .employee-info {
       margin-top: 2rem;
     }
+
+    button {
+      margin-top: 2rem;
+    }
   `}
 `;

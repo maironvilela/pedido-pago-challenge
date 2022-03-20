@@ -24,9 +24,9 @@ type InitialInformationProps = {
 };
 
 export const InitialInformation = styled.section<InitialInformationProps>`
-  ${({ theme }) => css`
-    header {
-      color: ${theme.colors.green[500]};
+  ${({ theme, isActive }) => css`
+      opacity: ${isActive ? '0.5' : '1'};
+       color: ${theme.colors.green[500]};
       font-size: ${theme.font.sizes.xsmall};
     }
     > div {

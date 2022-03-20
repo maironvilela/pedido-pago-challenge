@@ -1,30 +1,40 @@
 import { FaRedoAlt } from 'react-icons/fa';
 import { Button } from '../Button';
-import { EmployeeCard, EmployeeInfo } from '../EmployeeCard';
+import { EmployeeCard } from '../EmployeeCard';
 import { Container } from './styles';
-import { faker } from '@faker-js/faker';
 
+type EmployeeInfo = {
+  id: number;
+  label: string;
+  description: string;
+};
+type Employee = {
+  employeesInfo: EmployeeInfo[];
+  imgUrl: string;
+  header: string;
+  name: string;
+  isActive?: boolean;
+};
 type EmployeesListProps = {
   title: string;
+  employees: Employee[];
 };
 
-export function EmployeesList({ title }: EmployeesListProps) {
-  const employeesInfo: EmployeeInfo[] = [
-    {
-      id: 1,
-      label: 'Label',
-      description: 'Description'
-    }
-  ];
+export function EmployeesList({ title, employees }: EmployeesListProps) {
   return (
     <Container className="employees-list">
       <h2>{title}</h2>
-      <EmployeeCard
-        employeesInfo={employeesInfo}
-        imgUrl={faker.image.avatar()}
-        header="Nome Completo"
-        name={faker.name.findName()}
-      />
+
+      {employees?.map((employee) => (
+        <EmployeeCard
+          key={employee.name}
+          employeesInfo={employee.employeesInfo}
+          imgUrl={employee.imgUrl}
+          header="Nome Completo"
+          name={employee.name}
+          isActive={!!employee.isActive}
+        />
+      ))}
 
       <Button icon={<FaRedoAlt />}> Carregar Mais</Button>
     </Container>
