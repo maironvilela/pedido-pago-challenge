@@ -74,7 +74,7 @@ export const Details = styled.section`
   }
 `;
 
-export const Actions = styled.section`
+export const ActionsDefault = styled.section`
   margin-top: 2rem;
   button {
     transition: 0.5s;
@@ -88,6 +88,34 @@ export const Actions = styled.section`
     }
     & + button {
       margin-top: 0.5rem;
+      color: #d67e7e;
+
+      svg {
+        color: #d67e7e;
+      }
+    }
+  }
+`;
+
+export const ActionsDeleteConfirm = styled.section`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  button {
+    transition: 0.5s;
+    width: 40%;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+    color: #6d6dd6;
+    svg {
+      color: #6d6dd6;
+    }
+    & + button {
       color: #d67e7e;
 
       svg {

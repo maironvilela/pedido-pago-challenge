@@ -3,11 +3,19 @@ import {
   FaChevronUp,
   FaChevronDown,
   FaRegEdit,
-  FaRegTrashAlt
+  FaRegTrashAlt,
+  FaCheck,
+  FaBan
 } from 'react-icons/fa';
 import { Avatar } from '../Avatar';
 import { EmployeeInfo } from '../EmployeeInfo';
-import { Container, Actions, InitialInformation, Details } from './styles';
+import {
+  Container,
+  ActionsDefault,
+  ActionsDeleteConfirm,
+  InitialInformation,
+  Details
+} from './styles';
 import { Button } from '../Button';
 
 export type EmployeeInfo = {
@@ -33,9 +41,14 @@ export function EmployeeCard({
   isActive
 }: EmployeeCardProps) {
   const [isShowDetails, setIsShowDetails] = useState(false);
+  const [isConfirmDelete, setIsConfirmDelete] = useState(false);
 
   const handleShowDetails = useCallback(() => {
     setIsShowDetails((isShowDetails) => !isShowDetails);
+  }, []);
+
+  const handleConfirmDelete = useCallback(() => {
+    setIsConfirmDelete((isConfirmDelete) => !isConfirmDelete);
   }, []);
 
   return (
@@ -66,10 +79,21 @@ export function EmployeeCard({
             ))}
           </Details>
 
-          <Actions>
-            <Button icon={<FaRegEdit />}>Editar</Button>
-            <Button icon={<FaRegTrashAlt />}>Excluir</Button>
-          </Actions>
+          {isConfirmDelete ? (
+            <ActionsDeleteConfirm>
+              <Button icon={<FaCheck />}>Confirmar Exclusão</Button>
+              <Button onClick={handleConfirmDelete} icon={<FaBan />}>
+                Cancelar Exclusão
+              </Button>
+            </ActionsDeleteConfirm>
+          ) : (
+            <ActionsDefault>
+              <Button icon={<FaRegEdit />}>Editar</Button>
+              <Button onClick={handleConfirmDelete} icon={<FaRegTrashAlt />}>
+                Excluir
+              </Button>
+            </ActionsDefault>
+          )}
         </>
       )}
     </Container>
