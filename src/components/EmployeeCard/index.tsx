@@ -40,20 +40,16 @@ export function EmployeeCard({
 
   return (
     <Container className="employees-card" isShowDetails={isShowDetails}>
-      <InitialInformation isActive={!!isActive}>
+      <InitialInformation
+        isActive={!!isActive}
+        onClick={handleShowDetails}
+        data-testid="btnToggle"
+      >
         <header>{header}</header>
         <div>
-          <div>
-            <Avatar imgUrl={imgUrl} fullName={name} />
-            <span>{name}</span>
-          </div>
-          <button
-            type="button"
-            onClick={handleShowDetails}
-            data-testid="btnToggle"
-          >
-            {isShowDetails ? <FaChevronUp /> : <FaChevronDown />}
-          </button>
+          <Avatar imgUrl={imgUrl} fullName={name} />
+          <span>{name}</span>
+          {isShowDetails ? <FaChevronUp /> : <FaChevronDown />}
         </div>
       </InitialInformation>
 

@@ -65,7 +65,10 @@ describe('<EmployeeCard />', () => {
     expect(screen.queryByText('Unidade')).not.toBeInTheDocument();
     expect(screen.queryByText('Quartel General')).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('button', { name: /Ações/i })
+      screen.queryByRole('button', { name: /Editar/i })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: /Excluir/i })
     ).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByTestId('btnToggle'));
@@ -83,5 +86,20 @@ describe('<EmployeeCard />', () => {
     expect(
       screen.getByRole('button', { name: /Excluir/i })
     ).toBeInTheDocument();
+  });
+
+  it('should be able change opacity property by 0.5 if isActive false', () => {
+    const args = {
+      header: 'Nome Completo',
+      imgUrl: faker.image.avatar(),
+      name: faker.name.findName(),
+      isActive: false,
+      employeesInfo: []
+    };
+    renderWithTheme(<EmployeeCard {...args} />);
+
+    expect(screen.getByText(`${args.name}`).parentElement).toHaveStyle({
+      opacity: 0.5
+    });
   });
 });

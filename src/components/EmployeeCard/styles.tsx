@@ -23,35 +23,36 @@ type InitialInformationProps = {
   isActive: boolean;
 };
 
-export const InitialInformation = styled.section<InitialInformationProps>`
+export const InitialInformation = styled.button<InitialInformationProps>`
   ${({ theme, isActive }) => css`
-      opacity: ${isActive ? '0.5' : '1'};
-       color: ${theme.colors.green[500]};
-      font-size: ${theme.font.sizes.xsmall};
-    }
-    > div {
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+    display: flex;
+    flex-direction: column;
 
-        span {
-          margin-left: 1rem;
-          color: ${theme.colors.green[500]};
-          font-weight: ${theme.font.bold};
-          font-size: ${theme.font.sizes.xsmall};
-          width: 80%;
-        }
+    width: 100%;
+
+    background: none;
+    color: ${theme.colors.green[500]};
+
+    border: none;
+    font-size: ${theme.font.sizes.xsmall};
+    padding: 1rem;
+
+    > div {
+      opacity: ${isActive ? '1' : '0.5'};
+      margin-top: 1rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 1rem;
+        color: ${theme.colors.green[500]};
+        font-weight: ${theme.font.bold};
+        font-size: ${theme.font.sizes.xsmall};
       }
 
-      > button {
+      svg {
         margin-left: auto;
-        border: none;
-        background: none;
       }
     }
   `}
