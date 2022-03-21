@@ -88,7 +88,7 @@ describe('<EmployeeCard />', () => {
     ).toBeInTheDocument();
   });
 
-  it('should be able change opacity property by 0.5 if isActive false', () => {
+  it('should be able to lower the value of the opacity property if user is inactive', () => {
     const args = {
       header: 'Nome Completo',
       imgUrl: faker.image.avatar(),
@@ -100,6 +100,21 @@ describe('<EmployeeCard />', () => {
 
     expect(screen.getByText(`${args.name}`).parentElement).toHaveStyle({
       opacity: 0.5
+    });
+  });
+
+  it('should be able to keep the value of the opacity property on if user is active', () => {
+    const args = {
+      header: 'Nome Completo',
+      imgUrl: faker.image.avatar(),
+      name: faker.name.findName(),
+      isActive: true,
+      employeesInfo: []
+    };
+    renderWithTheme(<EmployeeCard {...args} />);
+
+    expect(screen.getByText(`${args.name}`).parentElement).toHaveStyle({
+      opacity: 1
     });
   });
 });
