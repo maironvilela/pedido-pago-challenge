@@ -36,7 +36,7 @@ export function EmployeesList({ title, employees }: EmployeesListProps) {
         />
       ))}
 
-      <Button icon={<FaRedoAlt />}> Carregar Mais</Button>
+      <Button icon={<FaRedoAlt />}>Carregar Mais</Button>
     </Container>
   );
 }

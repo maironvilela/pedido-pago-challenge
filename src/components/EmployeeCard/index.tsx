@@ -5,7 +5,8 @@ import {
   FaRegEdit,
   FaRegTrashAlt,
   FaCheck,
-  FaBan
+  FaBan,
+  FaRegSave
 } from 'react-icons/fa';
 import { Avatar } from '../Avatar';
 import { EmployeeInfo } from '../EmployeeInfo';
@@ -42,6 +43,11 @@ export function EmployeeCard({
 }: EmployeeCardProps) {
   const [isShowDetails, setIsShowDetails] = useState(false);
   const [isConfirmDelete, setIsConfirmDelete] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+
+  const toggleIsEdit = () => {
+    setIsEdit((isEdit) => !isEdit);
+  };
 
   const handleShowDetails = useCallback(() => {
     setIsShowDetails((isShowDetails) => !isShowDetails);
@@ -50,6 +56,13 @@ export function EmployeeCard({
   const handleConfirmDelete = useCallback(() => {
     setIsConfirmDelete((isConfirmDelete) => !isConfirmDelete);
   }, []);
+
+  const handleSave = () => {
+    setIsEdit(false);
+  };
+  const handleDelete = () => {
+    setIsConfirmDelete(false);
+  };
 
   return (
     <Container className="employees-card" isShowDetails={isShowDetails}>
@@ -75,23 +88,39 @@ export function EmployeeCard({
                 label={info.label}
                 description={info.description}
                 isBadge={!!info.isBadge}
+                isEdit={isEdit}
               />
             ))}
           </Details>
 
           {isConfirmDelete ? (
             <ActionsDeleteConfirm>
-              <Button icon={<FaCheck />}>Confirmar Exclusão</Button>
+              <Button onClick={handleDelete} icon={<FaCheck />}>
+                Confirmar Exclusão
+              </Button>
               <Button onClick={handleConfirmDelete} icon={<FaBan />}>
                 Cancelar Exclusão
               </Button>
             </ActionsDeleteConfirm>
           ) : (
             <ActionsDefault>
-              <Button icon={<FaRegEdit />}>Editar</Button>
-              <Button onClick={handleConfirmDelete} icon={<FaRegTrashAlt />}>
-                Excluir
-              </Button>
+              {!isEdit ? (
+                <>
+                  <Button icon={<FaRegEdit />} onClick={toggleIsEdit}>
+                    Editar
+                  </Button>
+                  <Button
+                    onClick={handleConfirmDelete}
+                    icon={<FaRegTrashAlt />}
+                  >
+                    Excluir
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={handleSave} icon={<FaRegSave />}>
+                  Salvar
+                </Button>
+              )}
             </ActionsDefault>
           )}
         </>
