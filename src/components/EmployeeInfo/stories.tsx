@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { EmployeeInfo } from '.';
+import { BadgeType } from '../Badge';
 
 export default {
   title: 'EmployeeInfo',
@@ -12,10 +13,11 @@ export default {
     }
   },
   args: {
-    label: 'Status',
+    label: 'status',
     description: 'Ativo',
-    type: 'active',
-    isBadge: true
+    isBadge: true,
+    badgeType: BadgeType.ACTIVE,
+    isEdit: false
   }
 } as ComponentMeta<typeof EmployeeInfo>;
 

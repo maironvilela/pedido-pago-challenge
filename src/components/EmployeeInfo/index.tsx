@@ -1,24 +1,27 @@
-import { ReactNode } from 'react';
-import { Badge } from '../Badge';
+import { Badge, BadgeType } from '../Badge';
 import { Container } from './styles';
+
 type EmployeeInfoProps = {
   label: string;
-  description: string;
-  isBadge?: ReactNode;
-  type?: 'active' | 'inactive';
+  description?: string;
+  isBadge?: boolean;
+  badgeType: BadgeType;
+  isEdit?: boolean;
 };
 export function EmployeeInfo({
   label,
-  description,
+  description = '',
   isBadge,
-  type = 'inactive'
+  badgeType,
+  isEdit = false
 }: EmployeeInfoProps) {
   return (
-    <Container className="employee-info">
+    <Container className="employee-info" isEdit={isEdit}>
       <strong>{label}</strong>
-
       {isBadge ? (
-        <Badge description={description} type={type} />
+        <Badge label={badgeType} isEdit={isEdit} />
+      ) : isEdit ? (
+        <input type="text" placeholder={` ${description}`}></input>
       ) : (
         <span>{description}</span>
       )}
