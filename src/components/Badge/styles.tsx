@@ -2,20 +2,22 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 type ContainerProps = {
-  type?: 'active' | 'inactive';
+  status?: boolean;
+  isEdit: boolean;
 };
 
-export const Container = styled.strong<ContainerProps>`
-  ${({ theme, type }) => css`
-    padding: 4px 8px;
-    width: 7.2rem;
-    background: ${type === 'inactive'
-      ? theme.colors.white[300]
-      : theme.colors.green[100]};
+export const Container = styled.button<ContainerProps>`
+  ${({ theme, status, isEdit }) => css`
+    height: 35px;
+    width: 80px;
+    border: none;
+    background: ${status ? theme.colors.green[100] : theme.colors.white[300]};
     color: ${theme.colors.green[700]};
     border-radius: 999px;
     text-align: center;
     font-weight: ${theme.font.medium};
     font-size: 1.4rem;
+
+    cursor: ${isEdit ? 'pointer' : 'auto'};
   `}
 `;

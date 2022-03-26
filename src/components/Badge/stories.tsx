@@ -1,14 +1,16 @@
 import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Badge } from '.';
+import { Badge, BadgeType } from '.';
 
 export default {
   title: 'Badge',
   component: Badge,
+  argTypes: {
+    label: BadgeType
+  },
   args: {
-    description: 'Ativo',
-    type: 'active'
+    label: BadgeType.ACTIVE
   }
 } as ComponentMeta<typeof Badge>;
 
