@@ -9,7 +9,6 @@ import {
   FaRegSave
 } from 'react-icons/fa';
 import { Avatar } from '../Avatar';
-import { EmployeeInfo } from '../EmployeeInfo';
 import {
   Container,
   ActionsDefault,
@@ -18,40 +17,55 @@ import {
   Details
 } from './styles';
 import { Button } from '../Button';
-
-export type EmployeeInfo = {
-  id: number;
-  label: string;
-  description: string;
-  isBadge?: boolean;
-};
+import { Employee } from '../../pages';
+import { api } from '../../services/axios';
+import { EmployeeInfo } from '../EmployeeInfo';
+import { BadgeType } from '../Badge';
 
 export type EmployeeCardProps = {
+  employee: Employee;
   header: string;
-  imgUrl: string;
-  name: string;
-  employeesInfo: EmployeeInfo[];
-  isActive?: boolean;
 };
 
 export function EmployeeCard({
-  header,
-  imgUrl,
-  name,
-  employeesInfo,
-  isActive
+  employee: employeeProps,
+  header
 }: EmployeeCardProps) {
   const [isShowDetails, setIsShowDetails] = useState(false);
   const [isConfirmDelete, setIsConfirmDelete] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
+  const [employee, setEmployee] = useState(employeeProps);
 
   const toggleIsEdit = () => {
     setIsEdit((isEdit) => !isEdit);
   };
 
-  const handleShowDetails = useCallback(() => {
+  const handleShowDetails = useCallback(async () => {
+    const { data } = await api.get(`employees/${employee.id}`);
+    console.log(data);
+    const employeeInfo = [
+      {
+        label: 'Departamento',
+        description: data.department
+      },
+      {
+        label: 'Cargo',
+        description: data.role
+      },
+      {
+        label: 'Unidade',
+        description: data.branch
+      },
+      {
+        label: 'Status',
+        description: data.branch
+      }
+    ];
+
+    setEmployee({ ...employee, employeeInfo });
+
     setIsShowDetails((isShowDetails) => !isShowDetails);
-  }, []);
+  }, [employee]);
 
   const handleConfirmDelete = useCallback(() => {
     setIsConfirmDelete((isConfirmDelete) => !isConfirmDelete);
@@ -67,14 +81,14 @@ export function EmployeeCard({
   return (
     <Container className="employees-card" isShowDetails={isShowDetails}>
       <InitialInformation
-        isActive={!!isActive}
+        isActive={!!employee?.isActive}
         onClick={handleShowDetails}
-        data-testid="btnToggle"
+        data-testid="btnToggleShowDetails"
       >
         <header>{header}</header>
         <div>
-          <Avatar imgUrl={imgUrl} fullName={name} />
-          <span>{name}</span>
+          <Avatar imgUrl={employee?.imgUrl} fullName={employee?.name} />
+          <span>{employee?.name}</span>
           {isShowDetails ? <FaChevronUp /> : <FaChevronDown />}
         </div>
       </InitialInformation>
@@ -82,13 +96,16 @@ export function EmployeeCard({
       {isShowDetails && (
         <>
           <Details>
-            {employeesInfo?.map((info) => (
+            {employee.employeeInfo?.map((info) => (
               <EmployeeInfo
-                key={info.id}
+                key={info.label}
                 label={info.label}
                 description={info.description}
-                isBadge={!!info.isBadge}
+                isBadge={info.label === 'Status'}
                 isEdit={isEdit}
+                badgeType={
+                  employee.isActive ? BadgeType.ACTIVE : BadgeType.INACTIVE
+                }
               />
             ))}
           </Details>

@@ -1,19 +1,33 @@
+import { GetServerSideProps } from 'next';
 import { useMemo, useState } from 'react';
 import { EmployeesList } from '../components/EmployeesList';
 import { Header } from '../components/Header';
 import { Input } from '../components/Input';
 import { Select } from '../components/Select';
 import { Title } from '../components/Title';
+import { api } from '../services/axios';
 
 import { Container, Content, Table } from '../styles/home';
-
-type HomeProps = {
-  fullName: string;
+export type EmployeeInfo = {
+  label: string;
+  description: string;
+};
+export type Employee = {
+  id: number;
+  imgUrl: string;
+  name: string;
+  isActive?: boolean;
+  employeeInfo?: EmployeeInfo[];
 };
 
-export default function Home({ fullName }: HomeProps) {
+type HomeProps = {
+  employees: Employee[];
+};
+
+export default function Home({ employees }: HomeProps) {
   const [selectedOption, setSelectedOption] = useState('Colaboradores');
   const itens = ['Colaboradores', 'Cargos'];
+
   const placeholder = useMemo(() => {
     const itensLabel = {
       colaboradores: 'Nome ou CPF',
@@ -33,7 +47,7 @@ export default function Home({ fullName }: HomeProps) {
 
   return (
     <Container>
-      <Header fullName={fullName} />
+      <Header fullName="HEADER" />
       <Content>
         <Title title="Colaboradores" />
         <Table>
@@ -43,9 +57,34 @@ export default function Home({ fullName }: HomeProps) {
             itens={itens}
           />
           <Input placeholder={placeholder} label="Pesquisar por" />
-          <EmployeesList title="Listagem de colaboradores" />
+          <EmployeesList
+            title="Listagem de colaboradores"
+            employees={employees}
+          />
         </Table>
       </Content>
     </Container>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { data } = await api.get('employees');
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const employees = data.map((employee: any) => {
+    return {
+      id: employee.agent_id,
+      imgUrl: employee.image,
+      name: employee.name,
+      isActive: employee.status === 'active',
+      employeesInfo: []
+    };
+  });
+
+  console.log(employees);
+  return {
+    props: {
+      employees
+    }
+  };
+};
