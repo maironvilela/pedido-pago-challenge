@@ -3,15 +3,6 @@ import { faker } from '@faker-js/faker';
 
 import { EmployeeCard } from '.';
 import { renderWithTheme } from '../../utils/tests/helpers';
-import { server } from '../../mocks/server';
-
-beforeAll(() =>
-  server.listen({
-    onUnhandledRequest: 'error'
-  })
-);
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
 
 describe('<EmployeeCard />', () => {
   it('should be able render EmployeeCard with main information', () => {
