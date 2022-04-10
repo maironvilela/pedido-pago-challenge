@@ -81,7 +81,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     };
   });
 
-  console.log(employees);
   return {
     props: {
       employees

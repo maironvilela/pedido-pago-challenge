@@ -42,7 +42,6 @@ export function EmployeeCard({
 
   const handleShowDetails = useCallback(async () => {
     const { data } = await api.get(`employees/${employee.id}`);
-    console.log(data);
     const employeeInfo = [
       {
         label: 'Departamento',

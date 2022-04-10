@@ -1,8 +1,17 @@
-import { screen } from '@testing-library/react';
+import { act, fireEvent, screen } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
 
 import { EmployeeCard } from '.';
 import { renderWithTheme } from '../../utils/tests/helpers';
+import { server } from '../../mocks/server';
+
+beforeAll(() =>
+  server.listen({
+    onUnhandledRequest: 'error'
+  })
+);
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
 describe('<EmployeeCard />', () => {
   it('should be able render EmployeeCard with main information', () => {
@@ -135,11 +144,10 @@ describe('<EmployeeCard />', () => {
     );
   });
 
-  /*
   it('should be able hide edit and delete buttons and show confirm and cancel exclusion buttons when clicking delete button', async () => {
     const args = {
       employee: {
-        id: faker.datatype.number(),
+        id: 1,
         imgUrl: faker.image.avatar(),
         name: faker.name.findName(),
         isActive: true,
@@ -148,27 +156,6 @@ describe('<EmployeeCard />', () => {
             id: 1,
             label: 'Departamento',
             description: 'Administrativo'
-          },
-          {
-            id: 2,
-            label: 'Cargo',
-            description: 'Diretor'
-          },
-          {
-            id: 3,
-            label: 'Código da Unidade',
-            description: '123456789'
-          },
-          {
-            id: 4,
-            label: 'Unidade',
-            description: 'Quartel General'
-          },
-          {
-            id: 5,
-            label: 'Status',
-            description: 'Ativo',
-            isBadge: true
           }
         ]
       },
@@ -180,14 +167,13 @@ describe('<EmployeeCard />', () => {
       fireEvent.click(screen.getByTestId('btnToggleShowDetails'));
     });
 
-    //expect(await screen.findByText('Editar')).toBeInTheDocument();
+    expect(await screen.findByText('Editar')).toBeInTheDocument();
 
-    // expect(await screen.findByText('Excluir')).toBeInTheDocument();
-    expect(
-      await screen.findByText('Confirmar Exclusão')
-    ).not.toBeInTheDocument();
-    expect(
-      await screen.findByText('Cancelar Exclusão')
-    ).not.toBeInTheDocument();
-  });* */
+    expect(await screen.findByText('Excluir')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText('Excluir'));
+
+    expect(await screen.findByText('Confirmar Exclusão')).toBeInTheDocument();
+    expect(await screen.findByText('Cancelar Exclusão')).toBeInTheDocument();
+  });
 });
