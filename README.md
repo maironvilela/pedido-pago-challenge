@@ -1,7 +1,9 @@
- <h1 align="center">
+ <div align="center">🚧 EM CONSTRUÇÃO 🚧</div>
+<h1 align="center">
     <img alt="Open Food" src="./public/assets/images/Cover.png" />
     <br>
  </h1>
+
  <p align="center">
   <a href="#sobre-o-projeto">Sobre o Projeto</a> |
   <a href="#tecnologias">Tecnologias</a> |
