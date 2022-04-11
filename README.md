@@ -1,7 +1,9 @@
- <h1 align="center">
+ <div align="center">🚧 EM CONSTRUÇÃO 🚧</div>
+<h1 align="center">
     <img alt="Open Food" src="./public/assets/images/Cover.png" />
     <br>
  </h1>
+
  <p align="center">
   <a href="#sobre-o-projeto">Sobre o Projeto</a> |
   <a href="#tecnologias">Tecnologias</a> |
@@ -33,12 +35,6 @@ O projeto consiste em um ambiente para realizar o gerenciamento dos funcionário
 
 [![Axios](https://img.shields.io/badge/Client_http-Axios-blue?&logo=axios)](https://axios-http.com)
 
-
-## Pré-Requisitos
-1. Instalação GIT
-2. Instalação NodeJS
-3. Instalação gerenciador de pacotes yarn ou npm
-4. Criar um projeto na plataforma firebase (Acesso é realizado através das credenciais da Google)
 
 ## Funções do Sistema
 ✔️ Responsividade
