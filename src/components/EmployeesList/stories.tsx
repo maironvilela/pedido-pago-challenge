@@ -14,6 +14,7 @@ export default {
     employees: [
       {
         type: {
+          id: 'number',
           imgUrl: 'string',
           header: 'string',
           name: 'string',
@@ -34,6 +35,7 @@ export default {
     title: 'Listagem de Colaboradores',
     employees: [
       {
+        id: 1,
         header: 'Nome Completo',
         imgUrl: faker.image.avatar(),
         name: faker.name.findName(),
@@ -68,6 +70,7 @@ export default {
         ]
       },
       {
+        id: 2,
         header: 'Nome Completo',
         imgUrl: faker.image.avatar(),
         name: faker.name.findName(),

@@ -11,16 +11,19 @@ export default {
     header: {
       type: 'string'
     },
-    imgUrl: {
-      type: 'string'
-    },
-    name: {
-      type: 'string'
-    },
-    isActive: {
-      type: 'boolean'
-    },
-    employeesInfo: []
+
+    employee: {
+      imgUrl: 'string',
+      name: 'string',
+      isActive: 'boolean',
+      employeeInfo: [
+        {
+          id: 'number',
+          label: 'string',
+          description: 'string'
+        }
+      ]
+    }
   }
 } as ComponentMeta<typeof EmployeeCard>;
 
@@ -29,35 +32,32 @@ export const Default: ComponentStory<typeof EmployeeCard> = (args) => (
 );
 Default.args = {
   header: 'Nome Completo',
-  imgUrl: faker.image.avatar(),
-  name: faker.name.findName(),
-  isActive: false,
-  employeesInfo: [
-    {
-      id: 1,
-      label: 'Departamento',
-      description: 'Administrativo'
-    },
-    {
-      id: 2,
-      label: 'Cargo',
-      description: 'Diretor'
-    },
-    {
-      id: 3,
-      label: 'Código da Unidade',
-      description: '123456789'
-    },
-    {
-      id: 4,
-      label: 'Unidade',
-      description: 'Quartel General'
-    },
-    {
-      id: 5,
-      label: 'Status',
-      description: 'Ativo',
-      isBadge: true
-    }
-  ]
+  employee: {
+    id: 1,
+    imgUrl: faker.image.avatar(),
+    name: faker.name.findName(),
+    isActive: false,
+    employeeInfo: [
+      {
+        label: 'Departamento',
+        description: 'Administrativo'
+      },
+      {
+        label: 'Cargo',
+        description: 'Diretor'
+      },
+      {
+        label: 'Código da Unidade',
+        description: '123456789'
+      },
+      {
+        label: 'Unidade',
+        description: 'Quartel General'
+      },
+      {
+        label: 'Status',
+        description: 'Ativo'
+      }
+    ]
+  }
 };
