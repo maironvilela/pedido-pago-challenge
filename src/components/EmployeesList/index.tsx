@@ -7,9 +7,14 @@ import { Container } from './styles';
 type EmployeesListProps = {
   title: string;
   employees: Employee[];
+  handleLoadEmployee(): void;
 };
 
-export function EmployeesList({ title, employees }: EmployeesListProps) {
+export function EmployeesList({
+  title,
+  employees,
+  handleLoadEmployee
+}: EmployeesListProps) {
   return (
     <Container className="employees-list">
       <h2>{title}</h2>
@@ -21,7 +26,9 @@ export function EmployeesList({ title, employees }: EmployeesListProps) {
           header="Nome Completo"
         />
       ))}
-      <Button icon={<FaRedoAlt />}>Carregar Mais</Button>
+      <Button onClick={handleLoadEmployee} icon={<FaRedoAlt />}>
+        Carregar Mais
+      </Button>
     </Container>
   );
 }
