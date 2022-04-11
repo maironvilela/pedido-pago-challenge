@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { EmployeesList } from '../components/EmployeesList';
 import { Header } from '../components/Header';
 import { Input } from '../components/Input';
@@ -45,6 +45,10 @@ export default function Home({ employees }: HomeProps) {
     }
   }, [selectedOption]);
 
+  const handleLoadEmployee = useCallback(() => {
+    console.log('handleLoadEmployee');
+  }, []);
+
   return (
     <Container>
       <Header fullName="HEADER" />
@@ -60,6 +64,7 @@ export default function Home({ employees }: HomeProps) {
           <EmployeesList
             title="Listagem de colaboradores"
             employees={employees}
+            handleLoadEmployee={handleLoadEmployee}
           />
         </Table>
       </Content>
