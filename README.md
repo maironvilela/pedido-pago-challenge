@@ -55,5 +55,10 @@ O projeto consiste em um ambiente para realizar o gerenciamento dos funcionário
 
 ## Link Produção
 
+<a href="https://pedido-pago-challenge-oq37vjigd-maironvilela.vercel.app">
+ <img alt="Open Food" src="./public/assets/images/Cover.png" />
+</a>
+
+
 
 
